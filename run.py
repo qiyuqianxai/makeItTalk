@@ -194,12 +194,12 @@ import os
 if __name__ == '__main__':
     last_message = {}
     while True:
-
+        try:
             with open(message_json, "r", encoding="utf-8") as f:
                 message = json.load(f)
 
             if message == last_message:
-                print('waiting')
+                print('MakeItTalk waiting')
                 sleep(1)
                 continue
             else:
@@ -210,7 +210,7 @@ if __name__ == '__main__':
                 sleep(1)
                 continue
             generate()
-        # except Exception as e:
-        #     print(e)
-        #     sleep(1)
-        #     continue
+        except Exception as e:
+            print(e)
+            sleep(1)
+            continue
